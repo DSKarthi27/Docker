@@ -1,0 +1,15 @@
+$vi docker-compose.yml	
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - 4000:80
+  db:
+    image: redis
+:wq
+$docker-compose up -d
+$docker ps
+$docker-compose down
+$docker rmi nginx redis
+$rm docker-compose.yml
