@@ -1,0 +1,33 @@
+$mkdir Dockerfile
+$cd Dockerfile
+$vi dockerfile
+
+	FROM amazonlinux
+
+	MAINTAINER "dskarthi2706@gmail.com"
+
+	RUN yum update -y
+
+	RUN yum install -y wget
+
+	RUN yum install -y tar
+
+	RUN yum install -y gzip
+
+	RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.tar.gz
+	RUN tar -zxvf apache-tomcat-9.0.84.tar.gz
+
+	RUN yum install -y java
+
+	RUN sh apache-tomcat-9.0.84/bin/startup.sh
+:wq
+
+$cd ..
+$docker build -t DSKarthi27/demo Dockerfile(directory name)
+$docker run -it -d DSKarthi27/demo(customized-image-name)
+$docker ps
+$docker exec -it containerid /bin/bash
+$ls
+$cd apache-tomcat-9.0.83(file name)
+$cd bin/
+$sh startup.sh
